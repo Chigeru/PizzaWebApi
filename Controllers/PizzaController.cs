@@ -56,7 +56,7 @@ namespace WebApi.Controllers
 
             if(pizza is null) return NotFound();
 
-            PizzaService.Delete(pizza);
+            PizzaService.Delete(id);
             return NoContent();
         }
 

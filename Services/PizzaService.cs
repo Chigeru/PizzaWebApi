@@ -29,10 +29,12 @@ namespace WebApi.Services
             Pizzas.Add(pizza);
         }
 
-        public static void Delete(Pizza pizza)
+        public static void Delete(int id)
         {
-            var index = Pizzas.FindIndex(p => p.Id == pizza.Id);
-            if (index == -1) return;
+            //var index = Pizzas.FindIndex(p => p.Id == pizza.Id);
+            //if (index == -1) return;
+            var pizza = Get(id);
+            if (pizza is null) return;
 
             Pizzas.Remove(pizza);
         }
@@ -40,7 +42,7 @@ namespace WebApi.Services
         public static void Update(Pizza pizza)
         {
             var index = Pizzas.FindIndex(p => p.Id == pizza.Id);
-            if (index >= -1) return;
+            if (index == -1) return;
 
             Pizzas[index] = pizza;
         }
